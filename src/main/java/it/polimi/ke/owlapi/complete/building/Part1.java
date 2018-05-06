@@ -24,8 +24,7 @@ import org.semanticweb.owlapi.model.*;
  **/
 public class Part1 {
 
-    public static IRI base = IRI.create("http:://example.org");
-
+    public static IRI base = IRI.create("http://example.org#");
 
     public static void main(String[] args) throws OWLOntologyCreationException {
 
@@ -35,7 +34,7 @@ public class Part1 {
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
+        OWLClass person = factory.getOWLClass(base + "Person");
 
         OWLDeclarationAxiom axiom = factory.getOWLDeclarationAxiom(person);
 
@@ -53,7 +52,7 @@ public class Part1 {
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
+        OWLClass person = factory.getOWLClass(base + "Person");
 
         OWLDeclarationAxiom axiom = factory.getOWLDeclarationAxiom(person);
 
@@ -75,7 +74,7 @@ public class Part1 {
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
+        OWLClass person = factory.getOWLClass(base + "Person");
 
         OWLDeclarationAxiom axiom = factory.getOWLDeclarationAxiom(person);
 

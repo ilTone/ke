@@ -23,24 +23,23 @@ import java.io.FileOutputStream;
  **/
 public class Part5 {
 
+    public static IRI base = IRI.create("http://example.org#");
+
     public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
 
-
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLOntology o = manager.createOntology(base);
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
-        OWLClass student = factory.getOWLClass(base + "#Student");
-        OWLClass course = factory.getOWLClass(base + "#Course");
-        OWLClass univ = factory.getOWLClass(base + "#University");
+        OWLClass person = factory.getOWLClass(base + "Person");
+        OWLClass student = factory.getOWLClass(base + "Student");
+        OWLClass course = factory.getOWLClass(base + "Course");
+        OWLClass univ = factory.getOWLClass(base + "University");
 
-        OWLObjectProperty isEnrolledIn = factory.getOWLObjectProperty(base + "#isEnrolledIn");
-        OWLObjectProperty attends = factory.getOWLObjectProperty(base + "#attends");
+        OWLObjectProperty isEnrolledIn = factory.getOWLObjectProperty(base + "isEnrolledIn");
+        OWLObjectProperty attends = factory.getOWLObjectProperty(base + "attends");
 
 
         OWLEquivalentClassesAxiom axiom = factory.getOWLEquivalentClassesAxiom(student,

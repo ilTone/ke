@@ -22,20 +22,19 @@ import java.io.FileOutputStream;
  **/
 public class Part4b {
 
-    public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
+    public static IRI base = IRI.create("http://example.org#");
 
+    public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
         OWLOntology o = manager.loadOntologyFromOntologyDocument(Part4b.class.getClassLoader().getResourceAsStream("part4a.owl.xml"));
 
-        IRI base = IRI.create("http:://example.org");
-
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
-        OWLClass woman = factory.getOWLClass(base + "#Woman");
-        OWLClass man = factory.getOWLClass(base + "#Man");
+        OWLClass person = factory.getOWLClass(base + "Person");
+        OWLClass woman = factory.getOWLClass(base + "Woman");
+        OWLClass man = factory.getOWLClass(base + "Man");
 
         OWLSubClassOfAxiom w_sub_m = factory.getOWLSubClassOfAxiom(woman, man);
 

@@ -12,22 +12,31 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
+        <Class IRI="Course"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Student"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="University"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="attends"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="isEnrolledIn"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Person"/>
+        <NamedIndividual IRI="ke"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Course"/>
+        <NamedIndividual IRI="polimi"/>
     </Declaration>
     <Declaration>
-        <Class IRI="University"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Student"/>
+        <NamedIndividual IRI="10324137"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="Student"/>
@@ -43,6 +52,38 @@
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
+    <ClassAssertion>
+        <Class IRI="Course"/>
+        <NamedIndividual IRI="ke"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="University"/>
+        <NamedIndividual IRI="polimi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Person"/>
+        <NamedIndividual IRI="10324137"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="attends"/>
+        <NamedIndividual IRI="10324137"/>
+        <NamedIndividual IRI="ke"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="isEnrolledIn"/>
+        <NamedIndividual IRI="10324137"/>
+        <NamedIndividual IRI="polimi"/>
+    </ObjectPropertyAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Student</IRI>
+        <Literal xml:lang="en">Class representing Students in the University.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>attends</IRI>
+        <Literal xml:lang="en">Property asserting the participation in a course.</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 

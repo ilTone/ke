@@ -20,9 +20,10 @@ import org.semanticweb.owlapi.model.*;
  * **/
 public class Part2 {
 
+    public static IRI base = IRI.create("http://example.org#");
+
     public static void main(String[] args) throws OWLOntologyCreationException {
 
-        IRI base = IRI.create("http:://example.org");
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
@@ -30,8 +31,8 @@ public class Part2 {
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person= factory.getOWLClass(base+"#Person");
-        OWLClass woman= factory.getOWLClass(base+"#Woman");
+        OWLClass person= factory.getOWLClass(base+"Person");
+        OWLClass woman= factory.getOWLClass(base+"Woman");
 
         o.add(factory.getOWLDeclarationAxiom(person));
         o.add(factory.getOWLDeclarationAxiom(woman));
@@ -43,16 +44,14 @@ public class Part2 {
 
     public static void tryout() throws OWLOntologyCreationException {
 
-        IRI base = IRI.create("http:://example.org/");
-
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
         OWLOntology o = manager.createOntology(base);
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person= factory.getOWLClass(base+"#Person");
-        OWLClass woman= factory.getOWLClass(base+"#Woman");
+        OWLClass person= factory.getOWLClass(base+"Person");
+        OWLClass woman= factory.getOWLClass(base+"Woman");
 
         o.add(factory.getOWLSubClassOfAxiom(woman, person));
 

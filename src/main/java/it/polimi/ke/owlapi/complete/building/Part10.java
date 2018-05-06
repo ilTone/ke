@@ -17,17 +17,16 @@ import java.io.FileOutputStream;
  * the ontology, but provide a way to enrich the ontology with meta-data.
  **/
 public class Part10 {
+    public static IRI base = IRI.create("http://example.org#");
 
     public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         OWLDataFactory factory = manager.getOWLDataFactory();
         OWLOntology o = manager.loadOntologyFromOntologyDocument(Part8.class.getClassLoader().getResourceAsStream("part6.owl.xml"));
 
-        OWLClass student = factory.getOWLClass(base + "#Student");
-        OWLObjectProperty attends = factory.getOWLObjectProperty(base + "#attends");
+        OWLClass student = factory.getOWLClass(base + "Student");
+        OWLObjectProperty attends = factory.getOWLObjectProperty(base + "attends");
 
 
         OWLAnnotation comment1 = factory.getOWLAnnotation(factory.getRDFSComment(), factory.
@@ -35,13 +34,12 @@ public class Part10 {
 
         OWLAnnotationAssertionAxiom a1 = factory.getOWLAnnotationAssertionAxiom(student.getIRI(), comment1);
 
-
         OWLAnnotation comment2 = factory.getOWLAnnotation(factory.getRDFSComment(), factory.
-                getOWLLiteral("Property asserting the participantion in a course.", "en"));
+                getOWLLiteral("Property asserting the participation in a course.", "en"));
 
         OWLAnnotationAssertionAxiom a2 = factory.getOWLAnnotationAssertionAxiom(attends.getIRI(), comment2);
 
-        o.add(a1,a2);
+        o.add(a1, a2);
 
         manager.saveOntology(o, new DLSyntaxDocumentFormat(), new FileOutputStream(new File("./part10.dl")));
         manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part10.owl.xml")));

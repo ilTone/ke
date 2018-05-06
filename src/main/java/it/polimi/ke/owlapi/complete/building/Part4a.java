@@ -15,18 +15,18 @@ import java.io.FileOutputStream;
  **/
 public class Part4a {
 
+    public static IRI base = IRI.create("http://example.org#");
+
     public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLOntology o = manager.createOntology(base);
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass woman = factory.getOWLClass(base + "#Woman");
-        OWLClass man = factory.getOWLClass(base + "#Man");
+        OWLClass woman = factory.getOWLClass(base + "Woman");
+        OWLClass man = factory.getOWLClass(base + "Man");
 
         OWLSubClassOfAxiom w_sub_m = factory.getOWLSubClassOfAxiom(woman, man);
 

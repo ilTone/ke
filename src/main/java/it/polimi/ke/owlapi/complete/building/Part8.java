@@ -37,20 +37,20 @@ import java.io.FileOutputStream;
  *  **/
 public class Part8 {
 
+    public static IRI base = IRI.create("http://example.org#");
+
     public static void main(String[] args) throws OWLOntologyCreationException {
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLReasonerFactory factory = new ReasonerFactory();
 
         OWLOntology o = manager.loadOntologyFromOntologyDocument(Part8.class.getClassLoader().getResourceAsStream("part6.owl.xml"));
 
         OWLDataFactory dataFactory = o.getOWLOntologyManager().getOWLDataFactory();
-        OWLClass student = dataFactory.getOWLClass(base + "#Student");
-        OWLClass teacher = dataFactory.getOWLClass(base + "#Teacher");
-        OWLClass demonstrator = dataFactory.getOWLClass(base + "#PhDStudent");
+        OWLClass student = dataFactory.getOWLClass(base + "Student");
+        OWLClass teacher = dataFactory.getOWLClass(base + "Teacher");
+        OWLClass demonstrator = dataFactory.getOWLClass(base + "PhDStudent");
 
         OWLDisjointClassesAxiom t_not_s = dataFactory.getOWLDisjointClassesAxiom(teacher, student);
 

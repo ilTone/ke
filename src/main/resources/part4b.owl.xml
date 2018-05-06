@@ -17,10 +17,21 @@
     <Declaration>
         <Class IRI="Woman"/>
     </Declaration>
+    <Declaration>
+        <Class IRI="Person"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="Man"/>
+        <Class IRI="Person"/>
+    </SubClassOf>
     <SubClassOf>
         <Class IRI="Woman"/>
-        <Class IRI="Man"/>
+        <Class IRI="Person"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="Man"/>
+        <Class IRI="Woman"/>
+    </DisjointClasses>
 </Ontology>
 
 

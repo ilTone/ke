@@ -28,27 +28,26 @@ import java.io.FileOutputStream;
  **/
 public class Part6 {
 
+    public static IRI base = IRI.create("http://example.org#");
+
     public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
 
-
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLOntology o = manager.loadOntologyFromOntologyDocument(Part6.class.getClassLoader().getResourceAsStream("part5.owl.xml"));
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
-        OWLClass univ = factory.getOWLClass(base + "#University");
-        OWLClass course = factory.getOWLClass(base + "#Course");
+        OWLClass person = factory.getOWLClass(base + "Person");
+        OWLClass univ = factory.getOWLClass(base + "University");
+        OWLClass course = factory.getOWLClass(base + "Course");
 
-        OWLObjectProperty isEnrolledIn = factory.getOWLObjectProperty(base + "#isEnrolledIn");
-        OWLObjectProperty attends = factory.getOWLObjectProperty(base + "#attends");
+        OWLObjectProperty isEnrolledIn = factory.getOWLObjectProperty(base + "isEnrolledIn");
+        OWLObjectProperty attends = factory.getOWLObjectProperty(base + "attends");
 
-        OWLNamedIndividual me = factory.getOWLNamedIndividual(base + "#10324137");
-        OWLNamedIndividual polimi = factory.getOWLNamedIndividual(base + "#polimi");
-        OWLNamedIndividual ke = factory.getOWLNamedIndividual(base + "#ke");
+        OWLNamedIndividual me = factory.getOWLNamedIndividual("10324137");
+        OWLNamedIndividual polimi = factory.getOWLNamedIndividual("polimi");
+        OWLNamedIndividual ke = factory.getOWLNamedIndividual("ke");
 
         OWLClassAssertionAxiom ax1 = factory.getOWLClassAssertionAxiom(person, me);
         OWLClassAssertionAxiom ax2 = factory.getOWLClassAssertionAxiom(univ, polimi);
@@ -62,7 +61,7 @@ public class Part6 {
         manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part6.owl.xml")));
 
 
-        OWLNamedIndividual marvin = factory.getOWLNamedIndividual(base + "#42424242");
+        OWLNamedIndividual marvin = factory.getOWLNamedIndividual("42424242");
 
         OWLObjectPropertyAssertionAxiom ax6 = factory.getOWLObjectPropertyAssertionAxiom(
                 attends, marvin, factory.getOWLAnonymousIndividual());

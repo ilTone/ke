@@ -2,6 +2,7 @@ package it.polimi.ke.owlapi.complete.building;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.formats.DLSyntaxDocumentFormat;
+import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
 import org.semanticweb.owlapi.model.*;
 
 import java.io.File;
@@ -24,10 +25,9 @@ import java.io.FileOutputStream;
 
 
 public class Part3 {
+    public static IRI base = IRI.create("http://example.org#");
 
     public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
@@ -35,10 +35,10 @@ public class Part3 {
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass person = factory.getOWLClass(base + "#Person");
-        OWLClass parent = factory.getOWLClass(base + "#Parent");
+        OWLClass person = factory.getOWLClass(base + "Person");
+        OWLClass parent = factory.getOWLClass(base + "Parent");
 
-        OWLObjectProperty hasChild = factory.getOWLObjectProperty(base + "#hasChild");
+        OWLObjectProperty hasChild = factory.getOWLObjectProperty(base + "hasChild");
 
         OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(
                 parent,
@@ -50,13 +50,12 @@ public class Part3 {
         o.logicalAxioms().forEach(System.out::println);
 
         manager.saveOntology(o, new DLSyntaxDocumentFormat(), new FileOutputStream(new File("./part3.dl")));
+        manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part3.owl.xml")));
 
     }
 
 
     public static void main2(String[] args) throws OWLOntologyCreationException, FileNotFoundException, OWLOntologyStorageException {
-
-        IRI base = IRI.create("http:://example.org/");
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
@@ -64,12 +63,12 @@ public class Part3 {
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
-        OWLClass A = factory.getOWLClass(base + "#A");
-        OWLClass B = factory.getOWLClass(base + "#B");
-        OWLClass C = factory.getOWLClass(base + "#C");
+        OWLClass A = factory.getOWLClass(base + "A");
+        OWLClass B = factory.getOWLClass(base + "B");
+        OWLClass C = factory.getOWLClass(base + "C");
 
-        OWLObjectProperty P = factory.getOWLObjectProperty(base + "#P");
-        OWLObjectProperty Q = factory.getOWLObjectProperty(base + "#Q");
+        OWLObjectProperty P = factory.getOWLObjectProperty(base + "P");
+        OWLObjectProperty Q = factory.getOWLObjectProperty(base + "Q");
 
         OWLSubClassOfAxiom ax = factory.getOWLSubClassOfAxiom(
                 factory.getOWLObjectSomeValuesFrom(P, A),

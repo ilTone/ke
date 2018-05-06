@@ -17,17 +17,17 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
  **/
 public class Part7 {
 
+    public static IRI base = IRI.create("http://example.org#");
+
     public static void main(String[] args) throws OWLOntologyCreationException {
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-        IRI base = IRI.create("http:://example.org");
 
         OWLReasonerFactory factory = new ReasonerFactory();
 
         OWLOntology o = manager.loadOntologyFromOntologyDocument(Part7.class.getClassLoader().getResourceAsStream("part6.owl.xml"));
 
-        OWLClass student = o.getOWLOntologyManager().getOWLDataFactory().getOWLClass(base + "#Student");
+        OWLClass student = o.getOWLOntologyManager().getOWLDataFactory().getOWLClass(base + "Student");
 
         o.logicalAxioms().forEach(System.err::println);
 
