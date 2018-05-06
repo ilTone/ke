@@ -18,7 +18,13 @@ import java.io.FileOutputStream;
  * Create a Named Individual "polimi" and make it a University
  * Create a Named Individual "ke" and make it a Course
  * <p>
+ * <p>
+ * <p>
  * assert that you are enrolled in polimi and are attending ke.
+ * <p>
+ * TryOut
+ * <p>
+ * create another student and make him attending a course, without specifying which one.
  **/
 public class Part6 {
 
@@ -29,7 +35,7 @@ public class Part6 {
 
         IRI base = IRI.create("http:://example.org");
 
-        OWLOntology o = manager.loadOntologyFromOntologyDocument(Part6.class.getClassLoader().getResourceAsStream("part5.owl"));
+        OWLOntology o = manager.loadOntologyFromOntologyDocument(Part6.class.getClassLoader().getResourceAsStream("part5.owl.xml"));
 
         OWLDataFactory factory = o.getOWLOntologyManager().getOWLDataFactory();
 
@@ -53,7 +59,18 @@ public class Part6 {
         o.add(ax1, ax2, ax3, ax4, ax5);
 
         manager.saveOntology(o, new DLSyntaxDocumentFormat(), new FileOutputStream(new File("./part6.dl")));
-        manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part6.owl")));
+        manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part6.owl.xml")));
+
+
+        OWLNamedIndividual marvin = factory.getOWLNamedIndividual(base + "#42424242");
+
+        OWLObjectPropertyAssertionAxiom ax6 = factory.getOWLObjectPropertyAssertionAxiom(
+                attends, marvin, factory.getOWLAnonymousIndividual());
+
+        o.add(ax6);
+
+        manager.saveOntology(o, new DLSyntaxDocumentFormat(), new FileOutputStream(new File("./part6b.dl")));
+        manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part6b.owl.xml")));
 
 
     }

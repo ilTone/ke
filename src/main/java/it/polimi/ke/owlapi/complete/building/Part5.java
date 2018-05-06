@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 /**
  * Part 5: Complex Assertion
  *
- * Student ≡ Person ⊓ (∃ attends.Course) ⊓ (∃ isEnrolledIn.University) 
+ * Student ≡ Person ⊓ (∃ attends.Course) ⊓ (∃ isEnrolledIn.University)
  *
  * Create an Named Individual with your own PersonCode and make it a Person
  * Create an Named Indivudal "polimi" and make it a University
@@ -54,7 +54,7 @@ public class Part5 {
         o.add(axiom);
 
         manager.saveOntology(o, new DLSyntaxDocumentFormat(), new FileOutputStream(new File("./part5.dl")));
-        manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part5.owl")));
+        manager.saveOntology(o, new OWLXMLDocumentFormat(), new FileOutputStream(new File("./part5.owl.xml")));
 
     }
 

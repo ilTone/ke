@@ -1,6 +1,6 @@
 package it.polimi.ke.owlapi.complete.load;
 
-import it.polimi.ke.owlapi.complete.building.Part7;
+import it.polimi.ke.owlapi.complete.building.Part9;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
 
@@ -15,7 +15,7 @@ public class IteratingTheOntology {
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
-        OWLOntology o = manager.loadOntologyFromOntologyDocument(Part7.class.getClassLoader().getResourceAsStream("pizza.owl.xml"));
+        OWLOntology o = manager.loadOntologyFromOntologyDocument(Part9.class.getClassLoader().getResourceAsStream("pizza.owl.xml"));
 
         o.signature().filter(e -> (!e.isBuiltIn() && e.getIRI().getFragment().startsWith("P"))).forEach(System.out::println);
 
