@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>it.polimi.ke.owlapi</groupId>
-    <artifactId>OWL API 5</artifactId>
+    <groupId>it.polimi.ke</groupId>
+    <artifactId>KEM</artifactId>
     <version>1.0</version>
     <build>
         <plugins>
