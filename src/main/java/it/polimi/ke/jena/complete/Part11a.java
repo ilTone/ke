@@ -1,13 +1,17 @@
 package it.polimi.ke.jena.complete;
 
+import org.apache.jena.graph.Graph;
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.graph.Triple;
+import org.apache.jena.sparql.graph.GraphFactory;
 
 /**
- * Part11c: Triples
+ * Part12a: Managing Triples
  * <p>
  * Work at a very low level, they are basic block of Statements
+ *
+ * Graphs are sets of triples
  **/
 
 public class Part11a {
@@ -22,7 +26,12 @@ public class Part11a {
 
         Triple triple = new Triple(me, teaches, ke);
 
+        Graph g = GraphFactory.createGraphMem();
+
+        g.add(triple);
+
         System.out.println(triple);
+        System.out.println(g);
 
     }
 }

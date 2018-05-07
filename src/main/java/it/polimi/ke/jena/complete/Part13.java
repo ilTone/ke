@@ -14,20 +14,25 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 /**
- * Part12:
- * <p>
- * Load part10.rdf.xml from resource folder
+ * Part12b: Reading and Converting
+ *
+ * Many RDF Serializations
+ *
+ * Turtle: TTL
+ * JSON-LD
+ * Notation 3: N-Triples
+ *
  **/
 
 public class Part13 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        String uri = "http://example.org#";
-
-        Model model = ModelFactory.createDefaultModel().read("part11.rdf.xml");
+        Model model = ModelFactory.createDefaultModel().read("./src/main/resources/part11.rdf.xml");
 
         model.write(new FileOutputStream(new File("./src/main/resources/part13.rdf.ttl")), "TTL");
+        model.write(new FileOutputStream(new File("./src/main/resources/part13.rdf.jsonld")), "JSON-LD");
+        model.write(new FileOutputStream(new File("./src/main/resources/part13.rdf.n3")), "N-Triples");
 
     }
 }

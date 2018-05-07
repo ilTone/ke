@@ -7,8 +7,9 @@ import org.apache.jena.rdf.model.ModelFactory;
 import java.io.FileNotFoundException;
 
 /**
- * Part16:
- * Querying
+ * Part16a: Querying
+ *
+ * ASK
  **/
 
 public class Part16b {

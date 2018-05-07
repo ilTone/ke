@@ -13,12 +13,19 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 
 /**
- * Part12:
- * <p>
- * Load part10.rdf.xml from resource folder
+ * Part12b: Resources
+ *
+ *  Resource API allows to create nested calls,
+ *  that automatically compose a model;
+ *
+ *  Many vocabularies are already available within the core Jena API.
+ *
+ *  Among them
+ *
+ *  OWL, RDF, RDFS
  **/
 
-public class Part12 {
+public class Part12b {
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -47,7 +54,7 @@ public class Part12 {
         model.add(se, RDF.type, subject);
         model.add(oxford, RDF.type, inst);
 
-        model.write(new FileOutputStream(new File("./src/main/resources/part12.rdf.xml")), "RDF/XML");
+        model.write(new FileOutputStream(new File("./src/main/resources/part12b.rdf.xml")));
 
     }
 }

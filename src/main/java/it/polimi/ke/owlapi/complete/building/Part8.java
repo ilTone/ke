@@ -33,7 +33,6 @@ import java.io.FileOutputStream;
  *
  * Did you forget to flush or create another reasoner?
  *
- *
  *  **/
 public class Part8 {
 

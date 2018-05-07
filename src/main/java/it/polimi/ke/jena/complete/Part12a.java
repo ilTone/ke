@@ -7,10 +7,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 /**
- * Part11c: Resources
+ * Part12a: Resources
  * <p>
  * <p>
- * Anything identifiable by a IRI.
+ * A resource is anything identifiable by a IRI.
  * <p>
  * Resources have properties, which are also identified by IRI.
  * I.E. properties are resouces too.
@@ -22,7 +22,7 @@ import java.io.FileOutputStream;
  * Each call to addProperty also add the triple to the model
  **/
 
-public class Part11c {
+public class Part12a {
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -47,10 +47,6 @@ public class Part11c {
             System.err.println(stmtIterator.nextStatement());
 
         }
-
-        model.write(new FileOutputStream(new File("rart1c.ttl")), "TTL");
-        model.write(new FileOutputStream(new File("Part11c.jsonld")), "JSON-LD");
-        model.write(new FileOutputStream(new File("Part11c.rdf.xml")), "RDF/XML");
 
     }
 }

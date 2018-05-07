@@ -12,6 +12,8 @@ import java.io.FileOutputStream;
 
 /**
  * Part10: Annotations
+ *
+ * Annotations can be used to attach metadata to ontologies.
  * <p>
  * Annotations do not have any effect on the logical structure of
  * the ontology, but provide a way to enrich the ontology with meta-data.

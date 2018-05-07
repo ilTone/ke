@@ -1,21 +1,26 @@
 package it.polimi.ke.jena.complete;
 
+import org.apache.jena.graph.Graph;
+import org.apache.jena.graph.Triple;
 import org.apache.jena.rdf.model.*;
 
 /**
- * Part11c: Statements
- * <p>
- * <p>
- * Anything identifiable by a IRI.
- * <p>
- * Resources have properties, which are also identified by IRI.
- * I.E. properties are resouces too.
- * <p>
- * Literals, i.e., primitive types are not resources.
- * <p>
- * Note:
- * <p>
- * create statement does NOT add the triple to the model
+ * Part12a: Statements
+ *
+ * Statements represent RDF Facts <Subject, Predicate, Object>
+ *
+ *
+ * A Model is a set of statements.
+ *
+ * Statement and Model build on the Triple and Graph interfaces.
+ *
+ * Statements are created through the a model instance, but
+ * "createStatement" does NOT add the triple to the model
+ *
+ * They must be added explicitly
+ *
+ * Models can be iterated
+ *
  **/
 
 public class Part11b {
@@ -33,6 +38,12 @@ public class Part11b {
         Statement statement = model.createStatement(me, teaches, ke);
 
         model.add(statement);
+
+        Triple triple = statement.asTriple();
+
+        Graph graph = model.getGraph();
+
+        System.out.println(graph.contains(triple));
 
         StmtIterator stmtIterator = model.listStatements();
 

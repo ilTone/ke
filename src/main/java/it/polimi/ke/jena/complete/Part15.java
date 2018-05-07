@@ -4,13 +4,24 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 /**
- * Part12:
+ * Part12b: Dataset
  * <p>
- * Load part10.rdf.xml from resource folder
+ * Dataset are sets of
+ * a default RDF Graph
+ * n >=0 (Named) RDF Graph
+ * <p>
+ * Dataset are the structure to perform SPARQL query on
+ * <p>
+ * their specification can be added in the SPARQL query
+ * using FROM and FROM Named Clauses
  **/
 
 public class Part15 {
@@ -36,5 +47,7 @@ public class Part15 {
 
         ds.getDefaultModel().write(System.out);
 
+
+        RDFDataMgr.write(new FileOutputStream(new File("./src/main/resources/part15.rdf.trig")), ds, Lang.TRIG);
     }
 }

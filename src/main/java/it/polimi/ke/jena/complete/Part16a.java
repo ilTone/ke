@@ -7,11 +7,10 @@ import org.apache.jena.rdf.model.ModelFactory;
 import java.io.FileNotFoundException;
 
 /**
- * Part16:
- * Querying
+ * Part16a:  Querying: SELECT
  **/
 
-public class Part16 {
+public class Part16a {
 
     public static void main(String[] args) throws FileNotFoundException {
 
